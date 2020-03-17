@@ -29,17 +29,17 @@ export const VisibilityFilters = {
 };
 
 export const addTodo = text => ({
-  type: 'ADD_TODO',
+  type: TodoActions.ADD_TODO,
   id: generateUuid(),
   text
 });
 
 export const toggleTodo = id => ({
-  type: 'TOGGLE_TODO',
+  type: TodoActions.TOGGLE_TODO,
   id
 });
 
 export const setVisibilityFilter = filter => ({
-  type: 'SET_VISIBILITY_FILTER',
+  type: filterActions.SET_VISIBILITY_FILTER,
   filter
 });

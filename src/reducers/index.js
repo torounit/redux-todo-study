@@ -1,9 +1,9 @@
-import { VisibilityFilters } from '../actions';
+import { TodoActions, filterActions, VisibilityFilters } from '../actions';
 import { combineReducers } from 'redux';
 
 const todos = ( state = [], action ) => {
   switch ( action.type ) {
-    case 'ADD_TODO':
+    case TodoActions.ADD_TODO:
       return [
         ...state,
         {
@@ -12,7 +12,7 @@ const todos = ( state = [], action ) => {
           completed: false
         }
       ];
-    case 'TOGGLE_TODO':
+    case TodoActions.TOGGLE_TODO:
       return state.map( todo =>
         ( todo.id === action.id )
           ? { ...todo, completed: !todo.completed }
@@ -25,7 +25,7 @@ const todos = ( state = [], action ) => {
 
 const filter = ( state = VisibilityFilters.SHOW_ALL, action ) => {
   switch ( action.type ) {
-    case 'SET_VISIBILITY_FILTER':
+    case filterActions.SET_VISIBILITY_FILTER:
       return action.filter;
     default:
       return state;
